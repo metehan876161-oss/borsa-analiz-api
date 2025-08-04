@@ -1,4 +1,4 @@
 flask
 pandas
-yfinance
+git+https://github.com/ranaroussi/yfinance.git
 numpy
