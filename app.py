@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS      # ---- EKLEDİK ----
 import pandas as pd
 import yfinance as yf
 import numpy as np
@@ -8,12 +9,11 @@ import warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
 
 app = Flask(__name__)
+CORS(app)    # ---- CORS'u aktif ettik ----
 
-# ---- TEKNİK ANALİZ FONKSİYONLARIN (direkt verdiğin kod) ----
-
-# (Buraya az önce verdiğin TÜM kodun fonksiyonlarını direkt kopyaladım)
-# (Kodu aşağıya uzatmamak için tekrar yazmadım, senin bana attığın kodun tamamını olduğu gibi buraya yapıştır.)
-# Yani importlar dahil, bütün fonksiyonları (hesapla_sessiz_guc, hesapla_hacim_artisi, ... vb) en başa ekle!
+# ---- TÜM TEKNİK ANALİZ FONKSİYONLARIN BURADA OLACAK! ----
+# (Senin bana verdiğin uzun teknik analiz fonksiyonlarının tamamını buraya kopyala)
+# Yani hesapla_sessiz_guc, hesapla_hacim_artisi, ... ve sessiz_guc_stratejisi de burada olacak!
 
 # ---- ANA ANALİZ FONKSİYONU ----
 def analiz90_full(hisse_kodu):
@@ -23,18 +23,15 @@ def analiz90_full(hisse_kodu):
         df = yf.download(hisse_kodu, start=start_date.strftime('%Y-%m-%d'), end=end_date.strftime('%Y-%m-%d'), interval="1h", auto_adjust=False)
         if df.empty:
             return {"hata": "Veri çekilemedi veya hisse kodu yanlış!"}
-        # Aşağıda, ana analiz fonksiyonunu çağırıyoruz.
-        # Tüm çıktıları dict olarak hazırlıyoruz.
-        # Mevcut kodun direkt fonksiyonunu çağırıp bütün önemli çıktılarını JSON'a yazacağız.
+        # Print çıktısını yakalamak için:
         from io import StringIO
         import sys
 
-        # Print çıktısını yakalamak için:
         old_stdout = sys.stdout
         mystdout = StringIO()
         sys.stdout = mystdout
 
-        # Senin ana analiz fonksiyonunu çağırıyoruz:
+        # Tüm analiz fonksiyonlarını çağıran ana fonksiyonunu burada çağır:
         gosterge_listesi = ['Close', 'EMA50', 'SMA50', 'UpperBB', 'LowerBB', 'UpperKeltner', 'LowerKeltner']
         sessiz_guc_stratejisi(
             hisse_kodu,
@@ -45,7 +42,6 @@ def analiz90_full(hisse_kodu):
             gosterge_listesi=gosterge_listesi
         )
 
-        # Print edilen tüm analiz sonuçlarını alıyoruz:
         sys.stdout = old_stdout
         output = mystdout.getvalue()
 
