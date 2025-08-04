@@ -5,7 +5,6 @@ from datetime import datetime, timedelta
 import warnings
 from functools import lru_cache
 import yfinance.shared as shared
-
 from flask import Flask, request, jsonify
 
 warnings.filterwarnings("ignore", category=FutureWarning)
