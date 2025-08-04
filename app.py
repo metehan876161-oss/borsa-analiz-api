@@ -1,4 +1,4 @@
-import pandas as pd
+import pandas as pd 
 import yfinance as yf
 import numpy as np
 from datetime import datetime, timedelta
@@ -79,9 +79,8 @@ def analiz90_api():
             "analiz": sonuc
         })
     except Exception as e:
-    import traceback
-    return jsonify({"hata": traceback.format_exc()}), 500
-
+        import traceback
+        return jsonify({"hata": traceback.format_exc()}), 500
 
 if __name__ == "__main__":
     import os
