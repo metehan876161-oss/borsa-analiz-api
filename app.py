@@ -79,7 +79,9 @@ def analiz90_api():
             "analiz": sonuc
         })
     except Exception as e:
-        return jsonify({"hata": str(e)}), 500
+    import traceback
+    return jsonify({"hata": traceback.format_exc()}), 500
+
 
 if __name__ == "__main__":
     import os
