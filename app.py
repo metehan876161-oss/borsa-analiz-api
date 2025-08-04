@@ -3,7 +3,7 @@ import yfinance as yf
 import numpy as np
 from datetime import datetime, timedelta
 import warnings
-from functools imporfrom flask import Flask, request, jsonify
+from flask import Flask, request, jsonify
 import pandas as pd
 import yfinance as yf
 import numpy as np
