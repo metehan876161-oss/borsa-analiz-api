@@ -18,12 +18,17 @@ def hesapla_rsi(df, period=14):
     loss = (-delta.where(delta < 0, 0)).rolling(window=period).mean()
     rs = gain / loss
     rsi = 100 - (100 / (1 + rs))
+    
+    if rsi.isna().iloc[-1]:  # SON DEĞER NaN Mİ?
+        return "📛 RSI: VERİ YETERSİZ"
+    
     if rsi.iloc[-1] > 70:
         return "🔺 RSI: AŞIRI ALIM"
     elif rsi.iloc[-1] < 30:
         return "🔻 RSI: AŞIRI SATIM"
     else:
         return "📊 RSI: NÖTR"
+
 
 def hesapla_macd(df):
     ema12 = df['Close'].ewm(span=12, adjust=False).mean()
