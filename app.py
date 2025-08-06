@@ -644,6 +644,13 @@ def sessiz_guc_stratejisi_api(
             'max_points': max_points,
             'final_signal': final_signal,
             'summary': summary_table,
+            'uyari': (
+    "‼️UYARI: Bu uygulama yalnızca teknik analiz araçlarıyla verileri yorumlamaktadır.\n\n"
+    "YATIRIM TAVSİYESİ DEĞİLDİR.\n\n"
+    "Nihai yatırım kararlarınızı, kendi araştırmalarınız doğrultusunda vermeniz önemlidir.\n\n"
+    "Uygulama geliştiricisi, yapılan işlemlerden doğabilecek zararlardan sorumlu tutulamaz."
+)
+
         }
     except Exception as exc:
         return {"error": str(exc)}
