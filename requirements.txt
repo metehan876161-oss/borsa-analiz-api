@@ -1,4 +1,5 @@
-flask
+Flask
+yfinance
 pandas
-git+https://github.com/ranaroussi/yfinance.git
 numpy
+gunicorn
