@@ -645,9 +645,9 @@ def sessiz_guc_stratejisi_api(
             'final_signal': final_signal,
             'summary': summary_table,
             'uyari': (
-    "‼️UYARI: Bu uygulama yalnızca teknik analiz araçlarıyla verileri yorumlamaktadır.\n\n"
-    "YATIRIM TAVSİYESİ DEĞİLDİR.\n\n"
-    "Nihai yatırım kararlarınızı, kendi araştırmalarınız doğrultusunda vermeniz önemlidir.\n\n"
+    "‼️UYARI: Bu uygulama yalnızca teknik analiz araçlarıyla verileri yorumlamaktadır.
+    "YATIRIM TAVSİYESİ DEĞİLDİR.
+    "Nihai yatırım kararlarınızı, kendi araştırmalarınız doğrultusunda vermeniz önemlidir.
     "Uygulama geliştiricisi, yapılan işlemlerden doğabilecek zararlardan sorumlu tutulamaz."
 )
 
