@@ -340,4 +340,4 @@ def analiz90_route():
 
 if __name__ == '__main__':
     # Lokal geliştirme için
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5001, debug=True)
